@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "987374903234",
+    "project_id": "fitiz-6d656",
+    "storage_bucket": "fitiz-6d656.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987374903234:android:94a7bc7c62e179b858005b",
+        "android_client_info": {
+          "package_name": "com.example.fitiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPb96Kr1VhG98EsIBaYpKeliQUoXXSx2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
