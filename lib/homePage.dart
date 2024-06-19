@@ -126,6 +126,7 @@ class _HomePageState extends State<HomePage> {
                         _pageController.jumpToPage(0);
                         selectedIndex = 0;
                       });
+                      Navigator.of(context).pop();
                     },
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
@@ -191,6 +192,7 @@ class _HomePageState extends State<HomePage> {
                         _pageController.jumpToPage(1);
                         selectedIndex = 1;
                       });
+                      Navigator.of(context).pop();
                     },
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
@@ -257,6 +259,7 @@ class _HomePageState extends State<HomePage> {
                         _pageController.jumpToPage(2);
                         selectedIndex = 2;
                       });
+                      Navigator.of(context).pop();
                     },
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
@@ -323,6 +326,7 @@ class _HomePageState extends State<HomePage> {
                         _pageController.jumpToPage(3);
                         selectedIndex = 3;
                       });
+                      Navigator.of(context).pop();
                     },
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
@@ -388,6 +392,7 @@ class _HomePageState extends State<HomePage> {
                         _pageController.jumpToPage(4);
                         selectedIndex = 4;
                       });
+                      Navigator.of(context).pop();
                     },
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,

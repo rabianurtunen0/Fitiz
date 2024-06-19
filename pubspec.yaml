@@ -48,6 +48,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   firebase_auth: ^4.2.5
   fluttertoast: ^8.2.4
+  lottie: ^2.7.0
 
 
 dev_dependencies:

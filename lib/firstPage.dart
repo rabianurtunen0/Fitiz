@@ -38,7 +38,6 @@ class _FirstPageState extends State<FirstPage> {
                 color: const Color(0XFF5E5F54),
                 fontSize: ScreenUtil().setSp(12),
                 fontWeight: FontWeight.w700,
-                
               ),
             ),
           ),

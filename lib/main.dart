@@ -9,7 +9,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:intl/intl.dart'; 
+import 'package:intl/date_symbol_data_local.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +19,11 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var email = prefs.getString("email");
-  runApp(email == null ? const MyApp() : const MyApp2());
+  initializeDateFormatting('tr_TR', null).then((_) { 
+    runApp(email == null ? const MyApp() : const MyApp2());
   runApp(const MyApp());
+  }); 
+  
 }
 
 class MyApp extends StatelessWidget {

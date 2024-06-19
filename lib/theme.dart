@@ -9,7 +9,7 @@ class ThemeStyles {
           MaterialStateProperty.all<Color>(const Color(0XFFB840CD)),
       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
       overlayColor: MaterialStateProperty.resolveWith(
-          (states) => const Color(0XFF82318A)),
+          (states) => const Color(0XFFA42FB8)),
       elevation: MaterialStateProperty.all<double?>(0.0),
       shape: MaterialStateProperty.all<OutlinedBorder>(
         RoundedRectangleBorder(
