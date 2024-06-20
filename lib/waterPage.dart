@@ -145,7 +145,7 @@ class _WaterPageState extends State<WaterPage> {
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
                           ],
-                          cursorColor: const Color(0XFFB840CD),
+                          cursorColor: const Color(0XFF4CC9F0),
                           maxLines: null,
                           expands: true,
                           decoration: InputDecoration(
