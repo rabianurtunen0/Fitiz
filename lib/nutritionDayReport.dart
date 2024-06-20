@@ -152,7 +152,7 @@ class _NutritionDayReportState extends State<NutritionDayReport> {
   }
 
   Widget buildMealRow(BuildContext context, String mealName, String assetPath,
-      String? description, int? calories) {
+      String? description, int? calorie) {
     return Column(
       children: [
         Row(
@@ -200,7 +200,7 @@ class _NutritionDayReportState extends State<NutritionDayReport> {
                     margin: EdgeInsets.only(
                         left: MediaQuery.of(context).size.width * 0.036),
                     child: Text(
-                      '${calories ?? 0} kcal',
+                      '${calorie ?? 0} kcal',
                       style: TextStyle(
                         color: const Color(0XFFBF0603),
                         fontSize: ScreenUtil().setSp(10.5),

@@ -1,7 +1,7 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitiz/addmeal.dart';
+import 'package:fitiz/addMeal.dart';
 import 'package:fitiz/calorieCalculationPage.dart';
 import 'package:fitiz/nutritionDayReport.dart';
 import 'package:flutter/material.dart';
