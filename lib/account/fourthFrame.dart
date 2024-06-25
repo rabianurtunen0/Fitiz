@@ -2,7 +2,6 @@ import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get_storage/get_storage.dart';
 
 class FourthFrame extends StatefulWidget {
@@ -132,7 +131,7 @@ void initState() {
             height: MediaQuery.of(context).size.width * 0.14,
             child: MaterialButton(
               onPressed: () {
-                if (_controller != null && _controller.text.isNotEmpty) {
+                if (_controller.text.isNotEmpty) {
                   widget.moveToPage(4);
                 }
               },

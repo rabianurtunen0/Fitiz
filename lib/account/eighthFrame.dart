@@ -1,5 +1,4 @@
 import 'package:get_storage/get_storage.dart';
-import 'package:intl/intl.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

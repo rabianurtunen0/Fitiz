@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/route_manager.dart';
-import 'package:get_storage/get_storage.dart';
 
 class NinthFrame extends StatefulWidget {
   int weight;
@@ -46,7 +45,6 @@ class _NinthFrameState extends State<NinthFrame> {
 
   @override
   Widget build(BuildContext context) {
-    final _getStorage = GetStorage();
     return Container(
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(

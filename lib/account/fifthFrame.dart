@@ -129,7 +129,7 @@ void initState() {
             height: MediaQuery.of(context).size.width * 0.14,
             child: MaterialButton(
               onPressed: () {
-                 if (_controller != null && _controller.text.isNotEmpty) {
+                 if (_controller.text.isNotEmpty) {
                   widget.moveToPage(5);
                 }
               },

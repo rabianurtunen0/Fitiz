@@ -1,6 +1,5 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:fitiz/account/loginPage.dart';
-import 'package:fitiz/calorieCalculationPage.dart';
 import 'package:fitiz/exercisePage.dart';
 import 'package:fitiz/myAccountPage.dart';
 import 'package:fitiz/nutritionPage.dart';
@@ -8,7 +7,6 @@ import 'package:fitiz/waterPage.dart';
 import 'package:fitiz/weighingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/route_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';

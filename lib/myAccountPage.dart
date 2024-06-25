@@ -1,8 +1,10 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class MyAccountPage extends StatefulWidget {
   const MyAccountPage({super.key});
@@ -12,6 +14,18 @@ class MyAccountPage extends StatefulWidget {
 }
 
 class _MyAccountPageState extends State<MyAccountPage> {
+
+  int activityIndex = 0;
+  int age = 0;
+  DateTime birthDate = DateTime.now();
+  String email = '';
+  String gender = '';
+  int genderIndex = 0;
+  String height = '';
+  String nameAndSurname = '';
+  int targetIndex = 0;
+  String weight = '';
+  String weightToLose = '';
 
   List activityLevel = [
     'Hareketsiz',
@@ -29,6 +43,57 @@ class _MyAccountPageState extends State<MyAccountPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    fetchUserData();
+  }
+
+
+
+  Future<void> fetchUserData() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      String email = user.email!;
+      DocumentReference waterDoc = FirebaseFirestore.instance
+          .collection('Users')
+          .doc(email);
+
+      DocumentSnapshot docSnapshot = await waterDoc.get();
+      if (docSnapshot.exists) {
+        setState(() {
+          activityIndex = docSnapshot.get('activityIndex');
+          age = docSnapshot.get('age');
+          Timestamp timestamp = docSnapshot.get('birthDate');
+          birthDate = timestamp.toDate(); 
+          email = docSnapshot.get('email');
+          gender = docSnapshot.get('gender');
+          genderIndex = docSnapshot.get('genderIndex');
+          height = docSnapshot.get('height');
+          nameAndSurname = docSnapshot.get('nameAndSurname');
+          targetIndex = docSnapshot.get('targetIndex');
+          weight = docSnapshot.get('weight');
+          weightToLose = docSnapshot.get('weightToLose');
+        });
+        print(activityIndex);
+        print(age);
+        print(birthDate); 
+        print(email);
+        print(gender);
+        print(genderIndex);
+        print(height);
+        print(nameAndSurname); 
+        print(targetIndex); 
+        print(weight);
+        print(weightToLose);
+      } else {
+        print('Belge bulunamadı.');
+      }
+    }
+  }
+
+
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
@@ -39,9 +104,11 @@ class _MyAccountPageState extends State<MyAccountPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.02,
-              vertical: MediaQuery.of(context).size.height * 0.03,
+            margin: EdgeInsets.fromLTRB(
+              MediaQuery.of(context).size.width * 0.02,
+              MediaQuery.of(context).size.height * 0.16,
+              MediaQuery.of(context).size.width * 0.02,
+              MediaQuery.of(context).size.height * 0.03,
             ),
             padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.036),
@@ -51,13 +118,13 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(12.0),
                 border: Border.all(
-                    color: true == true 
+                    color: gender == 'female'
                         ? const Color(0XFFEE0475)
                         : const Color(0XFF08C5FF),
                     width: 1.5)),
             child: Align(
                 alignment: Alignment.centerLeft,
-                child: true == true
+                child: gender == 'female'
                     ? SvgPicture.asset('assets/images/woman.svg',
                         color: const Color(0XFFEE0475))
                     : SvgPicture.asset('assets/images/man.svg',
@@ -99,7 +166,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '0',
+                          age.toString(),
                           style: TextStyle(
                             color: const Color(0XFF1F1E1C),
                             fontSize: ScreenUtil().setSp(11.5),
@@ -145,7 +212,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '0',
+                          weight,
                           style: TextStyle(
                             color: const Color(0XFF1F1E1C),
                             fontSize: ScreenUtil().setSp(11.5),
@@ -186,7 +253,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '0',
+                          height,
                           style: TextStyle(
                             color: const Color(0XFF1F1E1C),
                             fontSize: ScreenUtil().setSp(11.5),
@@ -230,7 +297,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    activityLevel[0],
+                    activityLevel[targetIndex],
                     style: TextStyle(
                       color: const Color(0XFF1F1E1C),
                       fontSize: ScreenUtil().setSp(11.5),
@@ -302,6 +369,26 @@ class _MyAccountPageState extends State<MyAccountPage> {
               ],
             ),
           ),
+
+          Container(
+          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
+                        child: CircularPercentIndicator(
+                          radius: MediaQuery.of(context).size.width * 0.15,
+                          lineWidth: 10.0,
+                          percent: 0.4,
+                          progressColor: Theme.of(context).primaryColor,
+                          backgroundColor: Theme.of(context).cardColor,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: Text(
+                                '40%',
+                                style: TextStyle(
+                                  color: Theme.of(context).highlightColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+                                ),
+                              ),
+                          
+                        )),
           
         ],
       ),

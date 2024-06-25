@@ -1,15 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitiz/account/passwordResetPage.dart';
 import 'package:fitiz/account/profileSettingPage.dart';
-import 'package:fitiz/account/signUpPage.dart';
-import 'package:fitiz/firstPage.dart';
 import 'package:fitiz/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,10 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   final emailEditingController = TextEditingController();
   final passwordEditingController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final _getStorage = GetStorage();
   final _fromKey = GlobalKey<FormState>();
   bool _isVisible = true;
-  bool _isChecked = false;
   bool _isLoading = false;
   bool _isEmailInvalid = false;
   bool _isPasswordInvalid = false;
@@ -406,7 +401,4 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
-  
-
-
 }

@@ -1,10 +1,8 @@
 import 'package:fitiz/account/profileSettingPage.dart';
-import 'package:fitiz/account/signUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/route_manager.dart';
-import 'package:get_storage/get_storage.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
