@@ -368,6 +368,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           createAccount(emailEditingController.text,
                               passwordEditingController.text);
                           _isLoading = true;
+                          _getStorage.write('nameAndSurname', nameAndSurnameEditingController.text);
+
                         });
                         Future.delayed(const Duration(seconds: 1), () {
                           setState(() {
@@ -449,6 +451,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   'genderIndex': _getStorage.read('genderIndex'),
                   'birthDate': _getStorage.read('birthDate'),
                   'age': _getStorage.read('age'),
+                  'calorie': _getStorage.read('calorie')
                 }),
                 Fluttertoast.showToast(
                   msg: "Hesap başarıyla oluşturuldu :) ",

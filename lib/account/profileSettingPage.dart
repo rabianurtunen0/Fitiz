@@ -224,16 +224,19 @@ class _ProfileSettingPageState extends State<ProfileSettingPage> {
     if(gender == 'female') {
       double bmr = 66.5 + (13.75 * weight) + (5 * height) - (6.77 * age);
       calorie = bmr * activityLevelValue;
+      _getStorage.write('calorie', calorie);
       print('Kalori değeri $calorie');
 
     } else if(gender == 'male') {
       double bmr = 655.1 + (9.56 * weight) + (1.85 * height) - (4.67 * age);
       calorie = bmr * activityLevelValue;
+      _getStorage.write('calorie', calorie);
       print('Kalori değeri $calorie');
 
     } else {
       double bmr = 66.5 + (13.75 * weight) + (5 * height) - (6.77 * age);
       calorie = bmr * activityLevelValue;
+      _getStorage.write('calorie', calorie);
       print('Kalori değeri $calorie');
     }
   }
